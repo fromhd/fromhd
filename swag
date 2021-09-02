@@ -1,0 +1,17 @@
+	docker create \
+  --name=swag \
+  --cap-add=NET_ADMIN \
+  --restart unless-stopped \
+  --net=bridge \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Asia/Seoul \
+  -e URL=nsjva.duckdns.org \
+  -e SUBDOMAINS=wildcard \
+  -e VALIDATION=duckdns \
+  -e DUCKDNSTOKEN=a9e46b82-7833-4a73-9e02-f46497880f3d \
+  -e EMAIL=fromhd@naver.com \
+  -v /volume1/docker/swag:/config \
+  -p 80:80 \
+  -p 443:443 \
+   linuxserver/swag
